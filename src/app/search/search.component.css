@@ -1,0 +1,6 @@
+.ngx-datepicker-calendar-container {
+	z-index:100 !important ;
+}
+.line-breaker {
+  white-space: pre-line;
+}

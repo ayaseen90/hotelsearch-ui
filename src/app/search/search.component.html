@@ -1,0 +1,58 @@
+
+
+
+<br />
+
+<div class="container">
+
+<h3>Enter Your Search Criteria </h3>
+
+<table class = "table-striped table-hover table-condensed" style="z-index: 5">
+<tr>
+
+<td>From</td>
+<td><ng-datepicker [(ngModel)]="search.dateFrom" ></ng-datepicker></td>
+
+        
+
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><input id="destCity" type="text" [(ngModel)]="search.destCity" placeholder="City, ex: New York" required minlength="3" #destCity="ngModel" class="form-control" ></td>
+</tr>
+<tr>
+
+<td>Until</td>
+<td><ng-datepicker [(ngModel)]="search.dateTo"></ng-datepicker></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td style="background-color: #eee">
+
+</td>
+</tr>
+</table>
+
+	<div *ngIf="(destCity.invalid && (destCity.dirty || destCity.touched)) || error.isError" class="alert alert-danger">
+
+  		<div *ngIf="destCity?.errors?.required">
+   			City is required.
+  		</div>
+  		<div *ngIf="destCity?.errors?.minlength">
+    		City must be at least 3 characters long.
+ 		</div>
+ 		
+ 		
+		<div *ngIf="error.isError"  class="line-breaker">
+			{{error.errorMessages }}
+  		</div>
+	
+	</div>
+
+<button (click)="onSelect(search.dateFrom, search.dateTo, search.destCity)" style="width:50%" class="btn btn-primary btn-block">Search</button>
+
+
+</div>
+<br />
+
+

@@ -1,0 +1,39 @@
+<br />
+<br />
+<br />
+
+<div class="row"><div class="col-md-2 col-md-offset-5 text-align:center"> <h3>Available Offers</h3></div></div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4" *ngFor='let offer of offers'>
+   <a href="{{offer.clickURL? offer.clickURL : '#'}}" target="_blank">
+   <div class="thumbnail">
+    <div *ngIf="offer.image && offer.image != '';then image_content else description_content"></div>
+      <ng-template #image_content><img data-src="{{offer.image}}" alt="Offer Image" width='100' class="img-circle"></ng-template>
+<ng-template #description_content><img data-src="assets/img/home.ico" alt="Offer Image" width='100' class="img-circle"></ng-template>
+
+      <div class="caption">
+        <h3>{{offer.destination}}</h3>
+         <h5>{{offer.dealType}}</h5>
+        <p>{{offer.description}}</p>
+        <p><button class="btn btn-primary">Book Now</button></p>
+      </div>
+    </div>
+    </a>
+  </div>
+  
+  
+</div>
+
+<div class="row" *ngIf='offers?.length == 0'>
+<div class="col-md-2 col-md-offset-5 text-align:center">
+  		No Offers are available with the specified search
+  		</div>
+  </div>
+<div class="row">
+<div class="col-md-2 col-md-offset-5 text-align:center">
+<button (click)="clearSearch()" style="width:50%" class="btn btn-primary btn-block">Clear Search</button>
+</div>
+</div>
+<br />
+<br />
